@@ -57,7 +57,7 @@
 
 0-2 Write a program that, when run, writes
 1This (&quot;) is a quote, and this (\) is a backs">
-<meta property="og:updated_time" content="2015-12-02T09:57:24.875Z">
+<meta property="og:updated_time" content="2015-12-02T10:00:07.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Accelerate C++ 读书笔记">
 <meta name="twitter:description" content="Chapter 0
@@ -237,7 +237,7 @@
 <li><p>0-5 Is this a valid program? Why or why not?</p>
 <figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="built_in">int</span> main()   std::cout &lt;&lt; <span class="string">"Hello World!"</span> &lt;&lt; std::endl<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p>解：编译该段程序，编译器报错”error: expected initializer before ‘std’”</p>
-<p>  int main(){XXX;} 定义main函数，必须包含{}来说明该函数的函数体是什么，如</p>
+<p>  int main(){XXX;} 定义main函数，必须包含{}来说明该函数的函数体是什么，函数体可以为空，如</p>
   <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  表示返回值为整型的main函数，其函数体表示返回0</p>
 </li>
