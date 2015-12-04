@@ -37,16 +37,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="Contain Duplicate(Difficulty: Easy)Problem:Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and">
+<meta name="description" content="如何理解
+flush the buffer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode刷题记录——Algorithm的Array部分">
-<meta property="og:url" content="http://mango1220.github.io/2015/10/24/LeetCodeArrayEasy/index.html">
+<meta property="og:title" content="一些问题">
+<meta property="og:url" content="http://mango1220.github.io/2015/12/04/Question/index.html">
 <meta property="og:site_name" content="Mango's blog">
-<meta property="og:description" content="Contain Duplicate(Difficulty: Easy)Problem:Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and">
-<meta property="og:updated_time" content="2015-12-02T10:21:11.257Z">
+<meta property="og:description" content="如何理解
+flush the buffer">
+<meta property="og:updated_time" content="2015-12-04T11:59:45.900Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode刷题记录——Algorithm的Array部分">
-<meta name="twitter:description" content="Contain Duplicate(Difficulty: Easy)Problem:Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and">
+<meta name="twitter:title" content="一些问题">
+<meta name="twitter:description" content="如何理解
+flush the buffer">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -58,7 +61,7 @@
 
 
 
-  <title> LeetCode刷题记录——Algorithm的Array部分 | Mango's blog </title>
+  <title> 一些问题 | Mango's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -168,7 +171,7 @@
           
           
             
-              LeetCode刷题记录——Algorithm的Array部分
+              一些问题
             
           
         </h1>
@@ -177,8 +180,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-10-24T20:01:38+08:00" content="2015-10-24">
-            2015-10-24
+          <time itemprop="dateCreated" datetime="2015-12-04T19:21:03+08:00" content="2015-12-04">
+            2015-12-04
           </time>
         </span>
 
@@ -197,11 +200,12 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="Contain_Duplicate(Difficulty:_Easy)">Contain Duplicate(Difficulty: Easy)</h2><h3 id="Problem:">Problem:</h3><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.<br>给定一个整数数组，判断该数组是否有重复的数字。如果有数字出现了至少两次，那么你的函数应当返回true，如果每个数字都是不同的（唯一的），那么函数应当返回false。</p>
-<h3 id="方法1">方法1</h3><p>利用STL中的set容器，因为set容器是单纯的key的集合，而且每个key都是唯一的，所以将题设数组存入set容器中，只会保留不同的元素。比较set的size和vector的size，若set较小说明有重复的元素被归为一个了，所以返回true，否则，set的size等于vector的size，返回false。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">containsDuplicate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; setInt(nums.begin(), nums.end());</span><br><span class="line">    <span class="keyword">if</span> (setInt.size() &lt; nums.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>运行结果：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 52 ms<br>Your runtime beats 37.29% of cpp submissions.<br>对比构造函数法和插入法<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="type">Solution</span>::containsDuplicate(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">set</span>&lt;<span class="type">int</span>&gt; setInt;</span><br><span class="line">    <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::<span class="keyword">iterator</span> iterV = nums.begin(); iterV != nums.<span class="keyword">end</span>(); ++iterV)</span><br><span class="line">    &#123;</span><br><span class="line">        setInt.insert(*iterV);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (setInt.size() &lt; nums.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>该方法运行结果如下：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 92 ms<br>You are here!<br>Your runtime beats 26.27% of cpp submissions.<br>由于使用for循环来插入vector各<br>项元素，开销增大，运行时间变长。</p>
-<h3 id="方法2">方法2</h3><p>排序，将题设数组排序，则若相邻两个数只差为零，说明存在重复元素。</p>
+        <span itemprop="articleBody"><ol>
+<li>如何理解<blockquote>
+<p>flush the buffer</p>
+</blockquote>
+</li>
+</ol>
 </span>
       
     </div>
@@ -213,13 +217,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/01/AccelerateCPP/" rel="prev">Accelerate C++ 习题解答</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/17/KMeans/" rel="next">K均值算法C++实现</a>
+              <a href="/2015/12/01/AccelerateCPP/" rel="next">Accelerate C++ 习题解答</a>
             
           </div>
         </div>
@@ -330,7 +332,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Contain_Duplicate(Difficulty:_Easy)"><span class="nav-number">1.</span> <span class="nav-text">Contain Duplicate(Difficulty: Easy)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem:"><span class="nav-number">1.1.</span> <span class="nav-text">Problem:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法1"><span class="nav-number">1.2.</span> <span class="nav-text">方法1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法2"><span class="nav-number">1.3.</span> <span class="nav-text">方法2</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
