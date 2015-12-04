@@ -211,7 +211,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1;
-  font-family: "Microsoft YaHei", sans;
+  font-family: Georgia, sans;
 }
 h1 {
   font-size: 26px;
@@ -1055,7 +1055,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff6e7d;
+  background: #54fa57;
 }
 .sidebar-nav {
   margin: 0;
