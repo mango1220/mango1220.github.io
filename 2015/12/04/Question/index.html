@@ -38,18 +38,21 @@
 
 
 <meta name="description" content="如何理解
-flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading cin flushes cout; cout is also flushed when the program ends normally.” http://s">
+
+flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading cin flushes cout; cout is also flushed when the program ends normally.” http://">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一些问题">
 <meta property="og:url" content="http://mango1220.github.io/2015/12/04/Question/index.html">
 <meta property="og:site_name" content="Mango's blog">
 <meta property="og:description" content="如何理解
-flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading cin flushes cout; cout is also flushed when the program ends normally.” http://s">
-<meta property="og:updated_time" content="2015-12-04T12:17:12.018Z">
+
+flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading cin flushes cout; cout is also flushed when the program ends normally.” http://">
+<meta property="og:updated_time" content="2015-12-04T13:23:02.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些问题">
 <meta name="twitter:description" content="如何理解
-flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading cin flushes cout; cout is also flushed when the program ends normally.” http://s">
+
+flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading cin flushes cout; cout is also flushed when the program ends normally.” http://">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -201,9 +204,15 @@ flush the buffer: “Output buffers can be explicitly flushed to force the buffe
 
       
         <span itemprop="articleBody"><ol>
-<li>如何理解<blockquote>
+<li><p>如何理解</p>
+<blockquote>
 <p>flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading <code>cin</code> flushes <code>cout</code>; <code>cout</code> is also flushed when the program ends normally.”<br> <a href="http://stackoverflow.com/questions/15042849/what-does-flushing-the-buffer-mean" target="_blank" rel="external">http://stackoverflow.com/questions/15042849/what-does-flushing-the-buffer-mean</a></p>
 </blockquote>
+<p> 答：</p>
+<blockquote>
+<p>Consider writing to a file. This is an expensive operation. If in your code you write one byte at a time, then each write of a byte is going to be very costly. So a common way to improve performance is to store the data that you are writing in a temporary buffer. Only when there is a lot of data is the buffer written to the file. By postponing the writes, and writing a large block in one go, performance is improved.</p>
+</blockquote>
+<p> 所以，”flush the buffer”指将buffer中的所有数据输出到某一处（如存储到文件），然后清空buffer。</p>
 </li>
 </ol>
 </span>
@@ -349,7 +358,7 @@ flush the buffer: “Output buffers can be explicitly flushed to force the buffe
       <div class="footer-inner"> <div class="copyright" >
   
   &copy; &nbsp; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart"></i>
   </span>
