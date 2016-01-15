@@ -189,6 +189,13 @@
 
         
           
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/12/04/Question/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/04/Question/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
         
         
       </div>
@@ -262,6 +269,13 @@
         
 
         
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/12/01/AccelerateCPP/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/01/AccelerateCPP/" itemprop="commentsCount"></span>
+            </a>
+          </span>
           
         
         
@@ -380,6 +394,13 @@
 
         
           
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/10/24/LeetCodeArrayEasy/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/24/LeetCodeArrayEasy/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
         
         
       </div>
@@ -393,13 +414,14 @@
       
         
           <span itemprop="articleBody"><h2 id="1-_[217]Contain_Duplicate">1. [217]Contain Duplicate</h2><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.<br>给定一个整数数组，判断该数组是否有重复的数字。如果有数字出现了至少两次，那么你的函数应当返回true，如果每个数字都是不同的（唯一的），那么函数应当返回false。</p>
-<h3 id="方法">方法</h3><p>利用STL中的set容器，因为set容器是单纯的key的集合，而且每个key都是唯一的，所以将题设数组存入set容器中，只会保留不同的元素。比较set的size和vector的size，若set较小说明有重复的元素被归为一个了，所以返回true，否则，set的size等于vector的size，返回false。</p>
-<p>set是使用红黑树实现数据存储的。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">containsDuplicate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; setInt(nums.begin(), nums.end());</span><br><span class="line">    <span class="keyword">if</span> (setInt.size() &lt; nums.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>运行结果：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 52 ms<br>Your runtime beats 37.29% of cpp submissions.<br>对比构造函数法和插入法<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> <span class="type">Solution</span>::containsDuplicate(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">set</span>&lt;<span class="type">int</span>&gt; setInt;</span><br><span class="line">    <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::<span class="keyword">iterator</span> iterV = nums.begin(); iterV != nums.<span class="keyword">end</span>(); ++iterV)</span><br><span class="line">    &#123;</span><br><span class="line">        setInt.insert(*iterV);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (setInt.size() &lt; nums.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>该方法运行结果如下：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 92 ms<br>You are here!<br>Your runtime beats 26.27% of cpp submissions.<br>考虑到构造函数法使用的是stl_tree.h中的insert_unique，开销比循环调用insert方法小</p>
+<h3 id="方法1">方法1</h3><p>利用STL中的set容器，因为set容器是单纯的key的集合，而且每个key都是唯一的，所以将题设数组存入set容器中，只会保留不同的元素。比较set的size和vector的size，若set较小说明有重复的元素被归为一个了，所以返回true，否则，set的size等于vector的size，返回false。<br>set是使用红黑树实现数据存储的。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">containsDuplicate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; setInt(nums.begin(), nums.end());</span><br><span class="line">    <span class="keyword">if</span> (setInt.size() &lt; nums.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 52 ms<br>Your runtime beats 37.29% of cpp submissions.</p>
+<p>对比构造函数法和插入法<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class <span class="type">Solution</span> &#123;</span><br><span class="line">public:</span><br><span class="line">    <span class="type">bool</span> containsDuplicate(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">    <span class="type">set</span>&lt;<span class="type">int</span>&gt; setInt;</span><br><span class="line">    <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::<span class="keyword">iterator</span> iterV = nums.begin(); iterV != nums.<span class="keyword">end</span>(); ++iterV)</span><br><span class="line">    &#123;</span><br><span class="line">        setInt.insert(*iterV);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (nums.size() &gt; setInt.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 92 ms<br>You are here!<br>Your runtime beats 26.27% of cpp submissions.<br>考虑到构造函数法使用的是stl_tree.h中的insert_unique，开销比循环调用insert方法小</p>
+<h3 id="方法2">方法2</h3><p>对给定的数组排序，然后比较相邻两个数，若存在相邻两数相等，即含有重复的数，返回true，否则返回false。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">containsDuplicate</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::sort(nums.begin(), nums.end());</span><br><span class="line">    <span class="keyword">if</span> (nums.size() &lt;= <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size()-<span class="number">1</span> ; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] == nums[i+<span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 36 ms<br>You are here!<br>Your runtime beats 92.22% of cpp submissions.<br>方法2比方法1快的原因是：</p>
 <h2 id="2-_[66]Plus_One">2. [66]Plus One</h2><p>Given a non-negative number represented as an array of digits, plus one to the number.<br>The digits are stored such that the most significant digit is at the head of the list.<br>用一组数字存入数组来代表一个非负数，对该数加1。<br>最高位数字存在数组的第一个位置。</p>
-<h3 id="方法-1">方法</h3></span>
+<h3 id="方法">方法</h3></span>
         
       
     </div>
@@ -448,6 +470,13 @@
         
 
         
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/10/17/KMeans/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/17/KMeans/" itemprop="commentsCount"></span>
+            </a>
+          </span>
           
         
         
@@ -529,6 +558,13 @@
         
 
         
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/07/27/AlgorithmLearning/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/27/AlgorithmLearning/" itemprop="commentsCount"></span>
+            </a>
+          </span>
           
         
         
@@ -725,6 +761,25 @@
     
     
 
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'mango1220';
+      var disqus_identifier = 'index.html';
+      var disqus_title = '';
+      var disqus_url = '';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+    </script>
   
 
 
