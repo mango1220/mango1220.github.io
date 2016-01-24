@@ -37,16 +37,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="1. 如何理解”flush the buffer”flush the buffer: &quot;Output buffers can be explicitly flushed to force the buffer to be written. By default, reading `cin` flushes `cout`; `cout` is also flushed when the progra">
+<meta name="description" content="1. 如何理解”flush the buffer”flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading “cin” flushes “cout”; “cout” is also flushed when the progra">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一些问题">
 <meta property="og:url" content="http://mango1220.github.io/2015/12/04/Question/index.html">
 <meta property="og:site_name" content="Mango's blog">
-<meta property="og:description" content="1. 如何理解”flush the buffer”flush the buffer: &quot;Output buffers can be explicitly flushed to force the buffer to be written. By default, reading `cin` flushes `cout`; `cout` is also flushed when the progra">
-<meta property="og:updated_time" content="2016-01-24T10:33:30.710Z">
+<meta property="og:description" content="1. 如何理解”flush the buffer”flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading “cin” flushes “cout”; “cout” is also flushed when the progra">
+<meta property="og:updated_time" content="2016-01-24T10:35:16.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些问题">
-<meta name="twitter:description" content="1. 如何理解”flush the buffer”flush the buffer: &quot;Output buffers can be explicitly flushed to force the buffer to be written. By default, reading `cin` flushes `cout`; `cout` is also flushed when the progra">
+<meta name="twitter:description" content="1. 如何理解”flush the buffer”flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading “cin” flushes “cout”; “cout” is also flushed when the progra">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -204,12 +204,8 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="1-_如何理解”flush_the_buffer”">1. 如何理解”flush the buffer”</h2><pre><code><span class="operator"><span class="keyword">flush</span> the buffer: <span class="string">"Output buffers can be explicitly flushed to force the buffer to be written. By default, reading `cin` flushes `cout`; `cout` is also flushed when the program ends normally."</span>
-[<span class="keyword">http</span>://stackoverflow.com/questions/<span class="number">15042849</span>/what-does-flushing-the-buffer-mean](<span class="keyword">http</span>://stackoverflow.com/questions/<span class="number">15042849</span>/what-does-flushing-the-buffer-mean)
-答：
-<span class="keyword">Consider</span> writing <span class="keyword">to</span> a <span class="keyword">file</span>. This <span class="keyword">is</span> an expensive operation. <span class="keyword">If</span> <span class="keyword">in</span> your code you write one <span class="keyword">byte</span> <span class="keyword">at</span> a <span class="keyword">time</span>, <span class="keyword">then</span> <span class="keyword">each</span> write <span class="keyword">of</span> a <span class="keyword">byte</span> <span class="keyword">is</span> going <span class="keyword">to</span> be very costly. So a common way <span class="keyword">to</span> improve <span class="keyword">performance</span> <span class="keyword">is</span> <span class="keyword">to</span> <span class="keyword">store</span> the <span class="keyword">data</span> that you <span class="keyword">are</span> writing <span class="keyword">in</span> a <span class="keyword">temporary</span> buffer. <span class="keyword">Only</span> <span class="keyword">when</span> there <span class="keyword">is</span> a lot <span class="keyword">of</span> <span class="keyword">data</span> <span class="keyword">is</span> the buffer written <span class="keyword">to</span> the <span class="keyword">file</span>. <span class="keyword">By</span> postponing the writes, <span class="keyword">and</span> writing a <span class="keyword">large</span> <span class="keyword">block</span> <span class="keyword">in</span> one <span class="keyword">go</span>, <span class="keyword">performance</span> <span class="keyword">is</span> improved.
-所以，<span class="string">"flush the buffer"</span>指将buffer中的所有数据输出到某一处（如存储到文件），然后清空buffer。</span>
-</code></pre></span>
+        <span itemprop="articleBody"><h2 id="1-_如何理解”flush_the_buffer”">1. 如何理解”flush the buffer”</h2><p>flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading “cin” flushes “cout”; “cout” is also flushed when the program ends normally.”<br><a href="http://stackoverflow.com/questions/15042849/what-does-flushing-the-buffer-mean" target="_blank" rel="external">http://stackoverflow.com/questions/15042849/what-does-flushing-the-buffer-mean</a><br>答：<br>Consider writing to a file. This is an expensive operation. If in your code you write one byte at a time, then each write of a byte is going to be very costly. So a common way to improve performance is to store the data that you are writing in a temporary buffer. Only when there is a lot of data is the buffer written to the file. By postponing the writes, and writing a large block in one go, performance is improved.<br>所以，”flush the buffer”指将buffer中的所有数据输出到某一处（如存储到文件），然后清空buffer。</p>
+</span>
       
     </div>
 
@@ -306,7 +302,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
