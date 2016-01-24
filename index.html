@@ -169,6 +169,80 @@
           
           
             
+              <a class="post-title-link" href="/2016/01/22/Process/" itemprop="url">
+                《操作系统》实验1：进程状态迁移过程
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2016-01-22T21:46:20+08:00" content="2016-01-22">
+            2016-01-22
+          </time>
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2016/01/22/Process/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/22/Process/" itemprop="commentsCount"></span>
+            </a>
+          </span>
+          
+        
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h2 id="要求">要求</h2><p>写一个程序描述进程状态迁移过程：</p>
+<ol>
+<li>提供导致进程状态变化的调用接口，包括创建、删除、删除、调度、阻塞、时间到、挂起、激活等。</li>
+<li>实现进程列表显示的接口。<br>注：这里设计的进程是一个假设的对象实体，是由程序自己创建和删除，不是系统维护的进程。</li>
+</ol>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/12/04/Question/" itemprop="url">
                 一些问题
               </a>
@@ -374,7 +448,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/10/24/LeetCodeArrayEasy/" itemprop="url">
+              <a class="post-title-link" href="/2015/10/24/LeetCodeArray/" itemprop="url">
                 LeetCode刷题记录——Algorithm的Array部分
               </a>
             
@@ -396,8 +470,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/10/24/LeetCodeArrayEasy/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/24/LeetCodeArrayEasy/" itemprop="commentsCount"></span>
+            <a href="/2015/10/24/LeetCodeArray/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/10/24/LeetCodeArray/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -416,13 +490,17 @@
           <span itemprop="articleBody"><h2 id="1-_[217]Contain_Duplicate">1. [217]Contain Duplicate</h2><p>Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.<br>给定一个整数数组，判断该数组是否有重复的数字。如果有数字出现了至少两次，那么你的函数应当返回true，如果每个数字都是不同的（唯一的），那么函数应当返回false。</p>
 <h3 id="方法1">方法1</h3><p>利用STL中的set容器，因为set容器是单纯的key的集合，而且每个key都是唯一的，所以将题设数组存入set容器中，只会保留不同的元素。比较set的size和vector的size，若set较小说明有重复的元素被归为一个了，所以返回true，否则，set的size等于vector的size，返回false。<br>set是使用红黑树实现数据存储的。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">containsDuplicate</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; setInt(nums.begin(), nums.end());</span><br><span class="line">    <span class="keyword">if</span> (setInt.size() &lt; nums.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>运行结果：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 52 ms<br>Your runtime beats 37.29% of cpp submissions.</p>
-<p>对比构造函数法和插入法<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class <span class="type">Solution</span> &#123;</span><br><span class="line">public:</span><br><span class="line">    <span class="type">bool</span> containsDuplicate(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">    <span class="type">set</span>&lt;<span class="type">int</span>&gt; setInt;</span><br><span class="line">    <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::<span class="keyword">iterator</span> iterV = nums.begin(); iterV != nums.<span class="keyword">end</span>(); ++iterV)</span><br><span class="line">    &#123;</span><br><span class="line">        setInt.insert(*iterV);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (nums.size() &gt; setInt.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>运行结果：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 92 ms<br>You are here!<br>Your runtime beats 26.27% of cpp submissions.<br>考虑到构造函数法使用的是stl_tree.h中的insert_unique，开销比循环调用insert方法小</p>
+<p>对比构造函数法和插入法<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class <span class="type">Solution</span> &#123;</span><br><span class="line">public:</span><br><span class="line">    <span class="type">bool</span> containsDuplicate(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">    <span class="type">set</span>&lt;<span class="type">int</span>&gt; setInt;</span><br><span class="line">    <span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::<span class="keyword">iterator</span> iterV = nums.begin(); iterV != nums.<span class="keyword">end</span>(); ++iterV)</span><br><span class="line">    &#123;</span><br><span class="line">        setInt.insert(*iterV);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (setInt.size() &lt; nums.size())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 92 ms<br>You are here!<br>Your runtime beats 26.27% of cpp submissions.<br>考虑到构造函数法使用的是stl_tree.h中的insert_unique(开销比循环调用insert方法小?)。</p>
 <h3 id="方法2">方法2</h3><p>对给定的数组排序，然后比较相邻两个数，若存在相邻两数相等，即含有重复的数，返回true，否则返回false。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">containsDuplicate</span><span class="params">(<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::sort(nums.begin(), nums.end());</span><br><span class="line">    <span class="keyword">if</span> (nums.size() &lt;= <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size()-<span class="number">1</span> ; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (nums[i] == nums[i+<span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>运行结果：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 36 ms<br>You are here!<br>Your runtime beats 92.22% of cpp submissions.<br>方法2比方法1快的原因是：</p>
+<p>运行结果：<br>16 / 16 test cases passed.<br>Status: Accepted<br>Runtime: 36 ms<br>You are here!<br>Your runtime beats 92.22% of cpp submissions.<br>方法2比方法1快的原因是：方法1中的<code>nums.size() &gt; setInt.size()</code>，在C++11之前的STL中<code>.size()</code>方法的时间复杂度是O(n)，而使用方法2，先排序（使用<code>.sort()</code>方法，时间复杂度O(nlogn)），再遍历数组，若发现有相邻两数相等即返回true，该for循环最坏的时间复杂度为O(n)。</p>
 <h2 id="2-_[66]Plus_One">2. [66]Plus One</h2><p>Given a non-negative number represented as an array of digits, plus one to the number.<br>The digits are stored such that the most significant digit is at the head of the list.<br>将一组数字存入数组来代表一个非负数，对该数加1。<br>最高位的数字存在数组的第一个位置。</p>
-<h3 id="方法">方法</h3><p>检查从最低位开始，连续多少位是9，即检查出，从第几位开始不是9，在该位加1，之前为9的位数全部置0，若该位为最高位，则使用insert方法，添加一位，即新的最高位为1，其他位置0.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; plusOne(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; digits) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = digits.size()-<span class="number">1</span>; i &gt;= <span class="number">0</span> ; --i)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (digits[i] == <span class="number">9</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                digits[i] = digits[i] + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                digits.insert(digits.begin(),<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="方法">方法</h3><p>检查从最低位开始，连续多少位是9，即检查出，从第几位开始不是9，在该位加1，之前为9的位数全部置0，若该位为最高位，则使用insert方法，添加一位，即新的最高位为1，其他位置0.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; plusOne(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; digits) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = digits.size()-<span class="number">1</span>; i &gt;= <span class="number">0</span> ; --i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (digits[i] == <span class="number">9</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                digits[i] = digits[i] + <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                digits.insert(digits.begin(),<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>运行结果：<br>108 / 108 test cases passed.<br>Status: Accepted<br>Runtime: 4 ms<br>You are here!<br>Your runtime beats 5.79% of cpp submissions.<br>改进：</p>
+<h2 id="3-_[189]Rotate_Array">3. [189]Rotate Array</h2><p>Rotate an array of n elements to the right by k steps.<br>For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].<br>Note:<br>Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.<br>对一含有n个元素的数组向右翻转7步。<br>举例，n = 7， k = 3， 数组为[1,2,3,4,5,6,7]被翻转为[5,6,7,1,2,3,4]。<br>备注：<br>尽可能使用更多的方法，该问题至少有3种不同的解决方法。</p>
+<h3 id="方法1-1">方法1</h3><p>将后k位的数组平移至数组头部，如例子中的5,6,7平移到1之前，5,6,7的顺序不变。涉及到数组的插入和删除。<br><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class <span class="type">Solution</span> &#123;</span><br><span class="line">public:</span><br><span class="line">    void rotate(<span class="built_in">vector</span>&lt;<span class="built_in">int</span>&gt;&amp; nums, <span class="built_in">int</span> k) &#123;</span><br><span class="line">        k = k % nums.size<span class="literal">()</span>;</span><br><span class="line">        nums.insert(nums.begin<span class="literal">()</span>, nums.<span class="keyword">end</span><span class="literal">()</span> - k, nums.<span class="keyword">end</span><span class="literal">()</span>);</span><br><span class="line">        nums.erase(nums.<span class="keyword">end</span><span class="literal">()</span> - k, nums.<span class="keyword">end</span><span class="literal">()</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>运行结果：<br>33 / 33 test cases passed.<br>Status: Accepted<br>Runtime: 24 ms<br>You are here!<br>Your runtime beats 21.37% of cpp submissions.</p>
+<h3 id="方法2-1">方法2</h3><h2 id="4-_[27]Remove_Element">4. [27]Remove Element</h2><p>Given an array and a value, remove all instances of that value in place and return the new length.<br>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.<br>给定一个数组和一个值，删除该值在数组中的所有实例，返回新的长度，数组中元素的顺序可以被改变，可以不用管</p>
 </span>
         
       
@@ -530,113 +608,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/27/AlgorithmLearning/" itemprop="url">
-                算法Java实现——基础知识
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-07-27T09:35:09+08:00" content="2015-07-27">
-            2015-07-27
-          </time>
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/27/AlgorithmLearning/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/07/27/AlgorithmLearning/" itemprop="commentsCount"></span>
-            </a>
-          </span>
-          
-        
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h4 id="常用数组处理代码">常用数组处理代码</h4><hr>
-<ol>
-<li><p>找出最大值</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">double <span class="built_in">max</span> = a[<span class="number">0</span>]<span class="comment">;</span></span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">1</span><span class="comment">; i &lt; a.length; i++)&#123;</span></span><br><span class="line">    <span class="keyword">if</span> (a[i] &gt; <span class="built_in">max</span>)&#123;</span><br><span class="line">        <span class="built_in">max</span> = a[i]<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>求平均值</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> N = a.length;</span><br><span class="line"><span class="keyword">double</span> <span class="keyword">sum</span> = <span class="number">0.0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">    <span class="keyword">sum</span> = <span class="keyword">sum</span> + a[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">double</span> average = <span class="keyword">sum</span> / N;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>复制数组</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//若想加数组复制到另外一个数组里，需要将其中的元素</span></span><br><span class="line"><span class="comment">//一个一个复制到新建数组里，而不能直接赋值a = b，</span></span><br><span class="line"><span class="comment">//因为那样两个变量a和b指向的是同一个数组，称为“起别名”</span></span><br><span class="line"><span class="keyword">int</span> N = a.length;</span><br><span class="line"><span class="keyword">double</span>[] b = <span class="keyword">new</span> <span class="keyword">double</span>[N];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)&#123;</span><br><span class="line">    b[i] = a[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>倒序</p>
-<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int N = a.length;</span><br><span class="line"><span class="keyword">for</span> (int i =<span class="number">0</span>; i &lt; N/<span class="number">2</span>; i++)<span class="comment">&#123;</span><br><span class="line">    double temp = a[i];</span><br><span class="line">    a[i] = a[N-1-i];</span><br><span class="line">    a[N-1-i] = temp;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>矩阵相乘</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//a,b为N*N二维数组</span><br><span class="line">//Java中数组的length方法，对于多维数组，获得的是最高一级的长度，如c[<span class="link_label">3</span>][<span class="link_reference">2</span>][<span class="link_label">4</span>]</span><br><span class="line">//c.length = 3, c[<span class="link_label">1</span>].length = 2, c[<span class="link_label">1</span>][<span class="link_reference">1</span>].length = 4</span><br><span class="line">//因为Java的多维数组即为数组的数组</span><br><span class="line">int N = a.length;</span><br><span class="line">double[<span class="link_label"></span>][<span class="link_reference"></span>] c = new double[<span class="link_label">N</span>][<span class="link_reference">N</span>];</span><br><span class="line">for (int i = 0; i <span class="xml"><span class="tag">&lt; <span class="attribute">N</span>; <span class="attribute">i</span>++)&#123;</span><br><span class="line">    <span class="attribute">for</span> (<span class="attribute">int</span> <span class="attribute">j</span> = <span class="attribute">0</span>; <span class="attribute">j</span> &lt; <span class="attribute">N</span>; <span class="attribute">j</span>++)&#123;</span><br><span class="line">        <span class="attribute">for</span> (<span class="attribute">int</span> <span class="attribute">k</span> = <span class="attribute">0</span>; <span class="attribute">k</span> &lt; <span class="attribute">N</span>; <span class="attribute">k</span>++)&#123;</span><br><span class="line">            <span class="attribute">c</span>[<span class="attribute">i</span>][<span class="attribute">j</span>] = <span class="attribute">c</span>[<span class="attribute">i</span>][<span class="attribute">j</span>] + <span class="attribute">a</span>[<span class="attribute">i</span>][<span class="attribute">k</span>]*<span class="attribute">b</span>[<span class="attribute">k</span>][<span class="attribute">j</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span></span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="常用静态方法的实现">常用静态方法的实现</h4><hr>
-<ol>
-<li><p>计算整数的绝对值</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">abs</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>计算浮点数的绝对值</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">abs</span><span class="params">(<span class="keyword">double</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0.0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> -x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>判断是否为素数</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> boolean <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> N)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (N &lt; <span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt;= N; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (N % i == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>计算平方根</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">sqrt</span><span class="params">(<span class="keyword">double</span> c)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (c &lt; <span class="number">0.0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> Double.NaN:</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">double</span> err = <span class="number">1e-15</span>;</span><br><span class="line">    <span class="keyword">double</span> t = c;</span><br><span class="line">    <span class="keyword">while</span> (Math.<span class="built_in">abs</span>(t - c/t) &gt; err * t)&#123;</span><br><span class="line">        t = (c/t + t) / <span class="number">2.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>计算直角三角形斜边</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">double</span> <span class="title">hypotenuse</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">return</span> Math.<span class="title">sqrt</span><span class="params">(a*a + b*b)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>计算调和级数</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> H(<span class="keyword">int</span> N)&#123;</span><br><span class="line">    <span class="keyword">double</span> <span class="keyword">sum</span> = <span class="number">0.0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++)&#123;</span><br><span class="line">        <span class="keyword">sum</span> = <span class="keyword">sum</span> + <span class="number">1.0</span>/i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">sum</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -675,7 +646,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

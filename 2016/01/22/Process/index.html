@@ -37,22 +37,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="如何理解
+<meta name="description" content="要求写一个程序描述进程状态迁移过程：
 
-flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading cin flushes cout; cout is also flushed when the program ends normally.” http://">
+提供导致进程状态变化的调用接口，包括创建、删除、删除、调度、阻塞、时间到、挂起、激活等。
+实现进程列表显示的接口。注：这里设计的进程是一个假设的对象实体，是由程序自己创建和删除，不是系统维护的进程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一些问题">
-<meta property="og:url" content="http://mango1220.github.io/2015/12/04/Question/index.html">
+<meta property="og:title" content="《操作系统》实验1：进程状态迁移过程">
+<meta property="og:url" content="http://mango1220.github.io/2016/01/22/Process/index.html">
 <meta property="og:site_name" content="Mango's blog">
-<meta property="og:description" content="如何理解
+<meta property="og:description" content="要求写一个程序描述进程状态迁移过程：
 
-flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading cin flushes cout; cout is also flushed when the program ends normally.” http://">
-<meta property="og:updated_time" content="2015-12-04T13:23:02.387Z">
+提供导致进程状态变化的调用接口，包括创建、删除、删除、调度、阻塞、时间到、挂起、激活等。
+实现进程列表显示的接口。注：这里设计的进程是一个假设的对象实体，是由程序自己创建和删除，不是系统维护的进程。">
+<meta property="og:updated_time" content="2016-01-23T08:52:28.449Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一些问题">
-<meta name="twitter:description" content="如何理解
+<meta name="twitter:title" content="《操作系统》实验1：进程状态迁移过程">
+<meta name="twitter:description" content="要求写一个程序描述进程状态迁移过程：
 
-flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading cin flushes cout; cout is also flushed when the program ends normally.” http://">
+提供导致进程状态变化的调用接口，包括创建、删除、删除、调度、阻塞、时间到、挂起、激活等。
+实现进程列表显示的接口。注：这里设计的进程是一个假设的对象实体，是由程序自己创建和删除，不是系统维护的进程。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +67,7 @@ flush the buffer: “Output buffers can be explicitly flushed to force the buffe
 
 
 
-  <title> 一些问题 | Mango's blog </title>
+  <title> 《操作系统》实验1：进程状态迁移过程 | Mango's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -174,7 +177,7 @@ flush the buffer: “Output buffers can be explicitly flushed to force the buffe
           
           
             
-              一些问题
+              《操作系统》实验1：进程状态迁移过程
             
           
         </h1>
@@ -183,8 +186,8 @@ flush the buffer: “Output buffers can be explicitly flushed to force the buffe
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-12-04T19:21:03+08:00" content="2015-12-04">
-            2015-12-04
+          <time itemprop="dateCreated" datetime="2016-01-22T21:46:20+08:00" content="2016-01-22">
+            2016-01-22
           </time>
         </span>
 
@@ -194,8 +197,8 @@ flush the buffer: “Output buffers can be explicitly flushed to force the buffe
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/12/04/Question/#comments" itemprop="discussionUrl">
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2015/12/04/Question/" itemprop="commentsCount"></span>
+            <a href="/2016/01/22/Process/#comments" itemprop="discussionUrl">
+              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/01/22/Process/" itemprop="commentsCount"></span>
             </a>
           </span>
           
@@ -210,17 +213,10 @@ flush the buffer: “Output buffers can be explicitly flushed to force the buffe
       
 
       
-        <span itemprop="articleBody"><ol>
-<li><p>如何理解</p>
-<blockquote>
-<p>flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading <code>cin</code> flushes <code>cout</code>; <code>cout</code> is also flushed when the program ends normally.”<br> <a href="http://stackoverflow.com/questions/15042849/what-does-flushing-the-buffer-mean" target="_blank" rel="external">http://stackoverflow.com/questions/15042849/what-does-flushing-the-buffer-mean</a></p>
-</blockquote>
-<p> 答：</p>
-<blockquote>
-<p>Consider writing to a file. This is an expensive operation. If in your code you write one byte at a time, then each write of a byte is going to be very costly. So a common way to improve performance is to store the data that you are writing in a temporary buffer. Only when there is a lot of data is the buffer written to the file. By postponing the writes, and writing a large block in one go, performance is improved.</p>
-</blockquote>
-<p> 所以，”flush the buffer”指将buffer中的所有数据输出到某一处（如存储到文件），然后清空buffer。</p>
-</li>
+        <span itemprop="articleBody"><h2 id="要求">要求</h2><p>写一个程序描述进程状态迁移过程：</p>
+<ol>
+<li>提供导致进程状态变化的调用接口，包括创建、删除、删除、调度、阻塞、时间到、挂起、激活等。</li>
+<li>实现进程列表显示的接口。<br>注：这里设计的进程是一个假设的对象实体，是由程序自己创建和删除，不是系统维护的进程。</li>
 </ol>
 </span>
       
@@ -233,13 +229,11 @@ flush the buffer: “Output buffers can be explicitly flushed to force the buffe
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/22/Process/" rel="prev">《操作系统》实验1：进程状态迁移过程</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/01/AccelerateCPP/" rel="next">Accelerate C++ 习题解答</a>
+              <a href="/2015/12/04/Question/" rel="next">一些问题</a>
             
           </div>
         </div>
@@ -354,7 +348,7 @@ flush the buffer: “Output buffers can be explicitly flushed to force the buffe
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#要求"><span class="nav-number">1.</span> <span class="nav-text">要求</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -408,9 +402,9 @@ flush the buffer: “Output buffers can be explicitly flushed to force the buffe
 
     <script type="text/javascript">
       var disqus_shortname = 'mango1220';
-      var disqus_identifier = '2015/12/04/Question/';
-      var disqus_title = '一些问题';
-      var disqus_url = 'http://mango1220.github.io/2015/12/04/Question/';
+      var disqus_identifier = '2016/01/22/Process/';
+      var disqus_title = '《操作系统》实验1：进程状态迁移过程';
+      var disqus_url = 'http://mango1220.github.io/2016/01/22/Process/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
