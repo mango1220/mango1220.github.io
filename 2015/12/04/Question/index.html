@@ -43,7 +43,7 @@
 <meta property="og:url" content="http://mango1220.github.io/2015/12/04/Question/index.html">
 <meta property="og:site_name" content="Mango's blog">
 <meta property="og:description" content="1. 如何理解”flush the buffer”flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading “cin” flushes “cout”; “cout” is also flushed when the progra">
-<meta property="og:updated_time" content="2016-01-24T10:35:16.788Z">
+<meta property="og:updated_time" content="2016-04-11T11:37:40.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些问题">
 <meta name="twitter:description" content="1. 如何理解”flush the buffer”flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading “cin” flushes “cout”; “cout” is also flushed when the progra">
@@ -204,7 +204,7 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="1-_如何理解”flush_the_buffer”">1. 如何理解”flush the buffer”</h2><p>flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading “cin” flushes “cout”; “cout” is also flushed when the program ends normally.”<br><a href="http://stackoverflow.com/questions/15042849/what-does-flushing-the-buffer-mean" target="_blank" rel="external">http://stackoverflow.com/questions/15042849/what-does-flushing-the-buffer-mean</a><br>答：<br>Consider writing to a file. This is an expensive operation. If in your code you write one byte at a time, then each write of a byte is going to be very costly. So a common way to improve performance is to store the data that you are writing in a temporary buffer. Only when there is a lot of data is the buffer written to the file. By postponing the writes, and writing a large block in one go, performance is improved.<br>所以，”flush the buffer”指将buffer中的所有数据输出到某一处（如存储到文件），然后清空buffer。</p>
+        <span itemprop="articleBody"><h1 id="1-_如何理解”flush_the_buffer”">1. 如何理解”flush the buffer”</h1><p>flush the buffer: “Output buffers can be explicitly flushed to force the buffer to be written. By default, reading “cin” flushes “cout”; “cout” is also flushed when the program ends normally.”<br><a href="http://stackoverflow.com/questions/15042849/what-does-flushing-the-buffer-mean" target="_blank" rel="external">http://stackoverflow.com/questions/15042849/what-does-flushing-the-buffer-mean</a><br>答：<br>Consider writing to a file. This is an expensive operation. If in your code you write one byte at a time, then each write of a byte is going to be very costly. So a common way to improve performance is to store the data that you are writing in a temporary buffer. Only when there is a lot of data is the buffer written to the file. By postponing the writes, and writing a large block in one go, performance is improved.<br>所以，”flush the buffer”指将buffer中的所有数据输出到某一处（如存储到文件），然后清空buffer。</p>
 </span>
       
     </div>
@@ -337,7 +337,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_如何理解”flush_the_buffer”"><span class="nav-number">1.</span> <span class="nav-text">1. 如何理解”flush the buffer”</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-_如何理解”flush_the_buffer”"><span class="nav-number">1.</span> <span class="nav-text">1. 如何理解”flush the buffer”</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
